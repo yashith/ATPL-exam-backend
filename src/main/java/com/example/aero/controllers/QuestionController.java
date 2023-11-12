@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/question")
 public class QuestionController {
@@ -17,6 +19,11 @@ public class QuestionController {
     Question getQuestion(@PathVariable int id) {
         Question testq = questionService.getById(id);
         return testq;
+    }
+
+    @PostMapping("/get/category/{cId}")
+    List<Question> getQuestionByCategory(@PathVariable int cId) {
+        return questionService.getByCategory(cId);
     }
 
     @PostMapping("/add")
