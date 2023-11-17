@@ -8,17 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/question")
+@RequestMapping("api/v1/categories")
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @GetMapping("/categories/get")
+    @CrossOrigin
+    @GetMapping("/get")
     public List<Category> getCategories() {
         return categoryService.getAll();
     }
 
-    @PostMapping("/categories/add")
+    @CrossOrigin
+    @PostMapping("/add")
     public Category addCategory(@RequestBody Category category){
         return categoryService.add(category);
     }

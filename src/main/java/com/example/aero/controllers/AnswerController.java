@@ -4,10 +4,7 @@ import com.example.aero.dto.Answer;
 import com.example.aero.services.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +14,7 @@ public class AnswerController {
     @Autowired
     AnswerService answerService;
 
+    @CrossOrigin
     @GetMapping("/get/{qId}")
     List<Answer> getAnswersForQuestion(@PathVariable("qId") int qId) {
         return answerService.getAnswersForQuestion(qId);

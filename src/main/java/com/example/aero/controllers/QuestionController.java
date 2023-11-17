@@ -15,17 +15,19 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
+    @CrossOrigin
     @GetMapping("/get/{id}")
     Question getQuestion(@PathVariable int id) {
-        Question testq = questionService.getById(id);
-        return testq;
+        return questionService.getById(id);
     }
 
+    @CrossOrigin
     @PostMapping("/get/category/{cId}")
     List<Question> getQuestionByCategory(@PathVariable int cId) {
         return questionService.getByCategory(cId);
     }
 
+    @CrossOrigin
     @PostMapping("/add")
     Question saveQuestion(@RequestBody Question question) {
         return questionService.saveQuestion(question);
