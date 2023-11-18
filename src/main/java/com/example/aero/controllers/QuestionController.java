@@ -1,6 +1,7 @@
 package com.example.aero.controllers;
 
 import com.example.aero.dto.Question;
+import com.example.aero.model.QCatLim;
 import com.example.aero.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ public class QuestionController {
     }
 
     @CrossOrigin
-    @PostMapping("/get/category/{cId}")
+    @GetMapping("/get/category/{cId}")
     List<Question> getQuestionByCategory(@PathVariable int cId) {
         return questionService.getByCategory(cId);
     }
@@ -33,4 +34,9 @@ public class QuestionController {
         return questionService.saveQuestion(question);
     }
 
+    @CrossOrigin
+    @PostMapping("/get/categories")
+    List<Question> getQuestionForCategoryList(@RequestBody QCatLim qcatLim){
+        return questionService.getForCategoryList(qcatLim);
+    }
 }

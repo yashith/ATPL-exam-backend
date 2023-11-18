@@ -20,4 +20,7 @@ public class AnswerController {
         return answerService.getAnswersForQuestion(qId);
     }
 
+    @PostMapping("/add")
+    Answer addAnswer(@RequestBody Answer answer){
+        return answerService.addAnswer(answer);}
 }
