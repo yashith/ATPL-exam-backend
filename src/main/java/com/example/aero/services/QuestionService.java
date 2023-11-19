@@ -19,8 +19,8 @@ public class QuestionService {
         return questionRepository.findById(id).get();
     }
 
-    public List<Question> getByCategory(int categoryId) {
-        return questionRepository.getQuestionByGroupId(categoryId);
+    public List<Question> getByCategory(int subModuleId) {
+        return questionRepository.getQuestionByGroupId(subModuleId);
     }
 
     public Question saveQuestion(Question question) {
@@ -28,10 +28,10 @@ public class QuestionService {
     }
 
     public List<Question> getForCategoryList(QCatLim qcatLim) {
-        List<Integer> catList = qcatLim.getCategoryIds();
+        List<Integer> subModuleList= qcatLim.getSubModuleListId();
         int limit = qcatLim.getQLimit();
         Pageable pageable = PageRequest.of(0,limit);
-        return questionRepository.getQuestionForCategories(catList,pageable);
+        return questionRepository.getQuestionForCategories(subModuleList,pageable);
 
     }
 }

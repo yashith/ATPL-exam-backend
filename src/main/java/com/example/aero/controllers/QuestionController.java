@@ -23,9 +23,9 @@ public class QuestionController {
     }
 
     @CrossOrigin
-    @GetMapping("/get/category/{cId}")
-    List<Question> getQuestionByCategory(@PathVariable int cId) {
-        return questionService.getByCategory(cId);
+    @GetMapping("/get/category/{mId}")
+    List<Question> getQuestionByCategory(@PathVariable int mId) {
+        return questionService.getByCategory(mId);
     }
 
     @CrossOrigin

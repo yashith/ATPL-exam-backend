@@ -9,8 +9,8 @@ import java.util.List;
 @Getter
 @Setter
 public class QCatLim {
-    @JsonProperty("category_ids")
-    List<Integer> categoryIds;
+    @JsonProperty("sub_module_ids")
+    List<Integer> subModuleListId;
     @JsonProperty("q_limit")
     int qLimit;
 }
