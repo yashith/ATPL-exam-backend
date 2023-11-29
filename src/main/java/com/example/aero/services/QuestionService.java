@@ -36,8 +36,13 @@ public class QuestionService {
     public List<Question> getForCategoryList(QCatLim qcatLim) {
         List<Integer> subModuleList= qcatLim.getSubModuleListId();
         int limit = qcatLim.getQLimit();
-        Pageable pageable = PageRequest.of(0,limit);
-        return questionRepository.getQuestionForCategories(subModuleList,pageable);
+        if(limit != 0){
+            Pageable pageable = PageRequest.of(0,limit);
+            return questionRepository.getQuestionForCategories(subModuleList,pageable);
+        }else {
+            return questionRepository.getAllQuestionForCategories(subModuleList);
+        }
+
 
     }
     public List<QuestionAnswers> getQuestionsWithAnswers(QCatLim qcatLim){
