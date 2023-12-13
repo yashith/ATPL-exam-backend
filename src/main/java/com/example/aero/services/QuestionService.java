@@ -58,5 +58,10 @@ public class QuestionService {
         }
         return qnas;
     }
+    public int getNumberOfQuestionsForSubModule(int subModuleId){
+        List<Integer> subModuleList = new ArrayList<>();
+        subModuleList.add(subModuleId);
+        return (int)questionRepository.countAllQuestionForCategories(subModuleList);
+    }
 
 }
